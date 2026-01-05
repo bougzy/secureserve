@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureServe Nigeria | Managed Professional Services</title>
+    <meta name="description" content="SecureServe Nigeria provides managed, vetted artisan services with full platform oversight. We assign verified technicians for plumbing, electrical, AC, solar, and cleaning services across Nigeria.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        :root {
+            --primary-orange: #D35400;
+            --dark-orange: #A04000;
+            --light-orange: #EDBB99;
+            --dark-bg: #121212;
+            --card-bg: #1E1E1E;
+            --text-light: #F5F5F5;
+            --text-muted: #B0B0B0;
+            --border-color: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+        
+        .primary-bg {
+            background-color: var(--primary-orange) !important;
+        }
+        
+        .dark-bg {
+            background-color: var(--dark-bg) !important;
+        }
+        
+        .card-bg {
+            background-color: var(--card-bg) !important;
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-orange);
+            border-color: var(--dark-orange);
+            font-weight: 600;
+            padding: 12px 24px;
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--dark-orange);
+            border-color: var(--dark-orange);
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        .text-primary {
+            color: var(--primary-orange) !important;
+        }
+        
+        .border-primary {
+            border-color: var(--primary-orange) !important;
+        }
+        
+        .hero-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="M0,0 L1000,0 L1000,200 Q500,150 0,200 Z" fill="%23D35400" opacity="0.1"/></svg>');
+            background-size: cover;
+            position: relative;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-orange);
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(211, 84, 0, 0.2);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+        
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(211, 84, 0, 0.1);
+            border: 1px solid var(--primary-orange);
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin: 5px;
+        }
+        
+        .sticky-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            border-radius: 50px;
+        }
+        
+        .form-control, .form-select {
+            background-color: #2c2c2c;
+            border: 1px solid var(--border-color);
+            color: var(--text-light);
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background-color: #2c2c2c;
+            border-color: var(--primary-orange);
+            color: var(--text-light);
+            box-shadow: 0 0 0 0.25rem rgba(211, 84, 0, 0.25);
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            color: var(--text-light);
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .modal-footer {
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .close-btn {
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-orange) !important;
+        }
+        
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .process-step:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+        }
+        
+        .process-step:after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 30px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: var(--border-color);
+        }
+        
+        .process-step:last-child:after {
+            display: none;
+        }
+        
+        .process-number {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 1;
+            font-size: 14px;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--text-light);
+        }
+        
+        .logo span {
+            color: var(--primary-orange);
+        }
+        
+        footer {
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .sticky-whatsapp {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">Secure<span>Serve</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="color: white;"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apply">Become a Partner</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trust">Trust & Safety</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary btn-sm ms-2" href="#" data-bs-toggle="modal" data-bs-target="#requestModal">Request Service</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 fade-in">
+                    <h1 class="display-4 fw-bold mb-4">Managed Professional Services <span class="text-primary">With Full Oversight</span></h1>
+                    <p class="lead mb-4">SecureServe Nigeria is a managed service coordination provider. We assign vetted service professionals for your home and business needs. All services are platform-managed with accountability and safety guarantees.</p>
+                    <div class="mb-4">
+                        <div class="trust-badge"><i class="fas fa-shield-alt me-2"></i> 100% Vetted Technicians</div>
+                        <div class="trust-badge"><i class="fas fa-lock me-2"></i> Platform-Managed Communication</div>
+                        <div class="trust-badge"><i class="fas fa-handshake me-2"></i> Dispute Resolution Guarantee</div>
+                    </div>
+                    <p class="text-white mb-4"><i class="fas fa-info-circle me-2 text-primary"></i> <strong>No random artisans. No guesswork.</strong> We handle coordination, assignment, and quality assurance.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#requestModal">
+                            <i class="fas fa-tools me-2"></i> Request a Service
+                        </button>
+                        <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#partnerModal">
+                            <i class="fas fa-user-check me-2"></i> Become a Partner
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-5 fade-in">
+                    <div class="card card-bg p-4">
+                        <h3 class="text-primary mb-3">Why Choose SecureServe?</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Centralized Accountability:</strong> Single point of contact for all service issues</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Managed Communication:</strong> All coordination handled through our platform</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Verified Service Partners:</strong> Rigorous screening before assignment</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Payment Protection:</strong> Funds released only after job confirmation</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>No Direct Contact Required:</strong> We manage all artisan-client interactions</li>
+                        </ul>
+                        <div class="alert alert-dark border-primary mt-3">
+                            <i class="fas fa-exclamation-triangle text-primary me-2"></i>
+                            <small>For your protection, all communication and payments must go through SecureServe. Direct contact with service partners voids platform guarantees.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in">
+                    <h2 class="section-title d-inline-block">Our Managed Services</h2>
+                    <p class="text-white">We coordinate vetted professionals across key service categories. All technicians are assigned by our platform based on your specific needs and location.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card card-bg p-4 service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-faucet"></i>
+                        </div>
+                        <h4>Plumbing Services</h4>
+                        <p class="text-white">Leak repairs, pipe installation, drainage solutions, and fixture replacements by verified plumbing specialists.</p>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" onclick="openServiceRequest('Plumbing Services')">Request This Service</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card card-bg p-4 service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Electrical Services</h4>
+                        <p class="text-white">Wiring, installations, repairs, and electrical system maintenance by certified electricians.</p>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" onclick="openServiceRequest('Electrical Services')">Request This Service</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card card-bg p-4 service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h4>AC & Cooling Services</h4>
+                        <p class="text-white">Installation, maintenance, and repair of air conditioning systems by experienced technicians.</p>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" onclick="openServiceRequest('AC & Cooling Services')">Request This Service</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card card-bg p-4 service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h4>Solar Installation</h4>
+                        <p class="text-white">Professional solar panel installation and maintenance for residential and commercial properties.</p>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" onclick="openServiceRequest('Solar Installation')">Request This Service</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card card-bg p-4 service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h4>Professional Cleaning</h4>
+                        <p class="text-white">Residential and commercial cleaning services using vetted cleaning professionals.</p>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" onclick="openServiceRequest('Professional Cleaning')">Request This Service</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="card card-bg p-4 service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Other Technical Services</h4>
+                        <p class="text-white">Carpentry, masonry, painting, and other specialized services with platform oversight.</p>
+                        <div class="mt-3">
+                            <button class="btn btn-primary w-100" onclick="openServiceRequest('Other Technical Services')">Request This Service</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5 fade-in">
+                <div class="col-12">
+                    <div class="card card-bg p-4 border-primary">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h4 class="text-primary"><i class="fas fa-exclamation-circle me-2"></i> Important Platform Policy</h4>
+                                <p class="mb-0">SecureServe manages all service coordination. Clients are connected with assigned technicians only after platform vetting. Direct contact between clients and service partners is strictly prohibited to maintain quality control and accountability.</p>
+                            </div>
+                            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                <button class="btn btn-whatsapp btn-lg" data-bs-toggle="modal" data-bs-target="#requestModal">
+                                    <i class="fab fa-whatsapp me-2"></i> Book via WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-5 dark-bg">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in">
+                    <h2 class="section-title d-inline-block">Platform-Managed Process</h2>
+                    <p class="text-white">Our controlled coordination ensures safety, accountability, and quality at every step.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto fade-in">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h4 class="text-primary">Service Request</h4>
+                        <p>Client submits request through our platform. No direct artisan contact is possible at this stage.</p>
+                        <p class="text-white"><small><i class="fas fa-lock me-1"></i> All communication is channeled to platform owner only</small></p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h4 class="text-primary">Platform Vetting & Assignment</h4>
+                        <p>Our team evaluates the request and manually assigns the most suitable vetted service partner.</p>
+                        <p class="text-white"><small><i class="fas fa-user-shield me-1"></i> Artisan identities remain confidential until assignment</small></p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h4 class="text-primary">Controlled Coordination</h4>
+                        <p>Platform owner facilitates all communication between client and assigned service partner.</p>
+                        <p class="text-white"><small><i class="fas fa-comment-alt me-1"></i> Direct client-artisan communication is prohibited</small></p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h4 class="text-primary">Platform-Managed Escrow</h4>
+                        <p>Client pays platform owner who holds funds until job completion and client confirmation.</p>
+                        <p class="text-white"><small><i class="fas fa-money-check-alt me-1"></i> Payment protection for both parties</small></p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">5</div>
+                        <h4 class="text-primary">Quality Assurance & Release</h4>
+                        <p>After client confirms satisfaction, platform owner releases payment to service partner.</p>
+                        <p class="text-white"><small><i class="fas fa-check-double me-1"></i> Dispute resolution handled by platform</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5 fade-in">
+                <div class="col-12 text-center">
+                    <div class="card card-bg p-5">
+                        <h3 class="text-primary mb-3">Controlled Communication Policy</h3>
+                        <p class="lead">To maintain service quality and accountability, all interactions between clients and service partners are managed through SecureServe platform. This ensures proper oversight, dispute resolution, and adherence to service standards.</p>
+                        <div class="alert alert-dark border-primary mt-4 mx-auto" style="max-width: 800px;">
+                            <i class="fas fa-ban text-primary me-2"></i>
+                            <strong>Policy Violation Notice:</strong> Service partners who attempt direct client contact or payment collection will be permanently removed from our platform. Clients who engage service partners directly forfeit platform protection.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Safety -->
+    <section id="trust" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in">
+                    <h2 class="section-title d-inline-block">Trust & Safety Framework</h2>
+                    <p class="text-white">Our platform architecture is designed to maximize safety and accountability for all parties.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 fade-in">
+                    <div class="card card-bg p-4 h-100">
+                        <h4 class="text-primary mb-3"><i class="fas fa-user-shield me-2"></i> For Clients</h4>
+                        <ul>
+                            <li class="mb-2">Single point of accountability for all service issues</li>
+                            <li class="mb-2">All service partners manually vetted before assignment</li>
+                            <li class="mb-2">Payment protection through platform-managed escrow</li>
+                            <li class="mb-2">No need to search for or evaluate individual artisans</li>
+                            <li class="mb-2">Dispute resolution handled by platform authority</li>
+                            <li>Guaranteed reassignment if service standards aren't met</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 fade-in">
+                    <div class="card card-bg p-4 h-100">
+                        <h4 class="text-primary mb-3"><i class="fas fa-user-check me-2"></i> For Service Partners</h4>
+                        <ul>
+                            <li class="mb-2">Steady stream of pre-vetted service opportunities</li>
+                            <li class="mb-2">Payment guarantee after job completion confirmation</li>
+                            <li class="mb-2">Platform handles client communication and coordination</li>
+                            <li class="mb-2">Professional reputation managed by platform</li>
+                            <li class="mb-2">No client acquisition costs or marketing needed</li>
+                            <li>Focus on service delivery while platform handles administration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5 fade-in">
+                <div class="col-12">
+                    <div class="card card-bg p-4 border-primary">
+                        <h4 class="text-primary mb-3"><i class="fas fa-gavel me-2"></i> Platform Rules & Compliance</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Service Partner Agreement</h6>
+                                <ul class="text-white">
+                                    <li>All jobs are assigned exclusively by the platform</li>
+                                    <li>Direct client contact is strictly prohibited</li>
+                                    <li>Payment is released only after job confirmation</li>
+                                    <li>Violation of platform rules leads to permanent removal</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Client Protection Policy</h6>
+                                <ul class="text-white">
+                                    <li>Only services booked through the platform are supported</li>
+                                    <li>Direct payments to service partners void all protection</li>
+                                    <li>Platform reserves right to reassign or replace technicians</li>
+                                    <li>All communication must go through platform channels</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 primary-bg">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 fade-in">
+                    <h2 class="text-white">Ready for Managed, Stress-Free Services?</h2>
+                    <p class="text-white mb-0">Experience the SecureServe difference. Let us handle the coordination while you enjoy quality service with full accountability.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 fade-in">
+                    <button class="btn btn-light btn-lg me-3" data-bs-toggle="modal" data-bs-target="#requestModal">
+                        <i class="fas fa-tools me-2"></i> Request Service
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="logo mb-3">Secure<span>Serve</span></h3>
+                    <p class="text-white">A managed service coordination platform for Nigeria. We provide oversight, accountability, and quality assurance for artisan services.</p>
+                    <div class="mt-4">
+                        <p class="text-white"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Serving urban and semi-urban areas across Nigeria</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-primary mb-4">Platform Policies</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Verification & Screening Process</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Communication Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Payment & Dispute Handling</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Client Safety Commitment</a></li>
+                        <li><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Service Partner Code of Conduct</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="text-primary mb-4">Contact Platform</h5>
+                    <p class="text-white">All communication must go through official platform channels:</p>
+                    <button class="btn btn-whatsapp mb-3">
+                        <i class="fab fa-whatsapp me-2"></i> WhatsApp Business Line
+                    </button>
+                    <p class="text-white small mt-3"><i class="fas fa-exclamation-triangle me-1 text-primary"></i> For platform integrity, we do not provide direct contact details for service partners.</p>
+                </div>
+            </div>
+            
+            <hr class="my-5 border-color">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-white small">&copy; 2023 SecureServe Nigeria. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-white small">A managed service coordination platform | Not a marketplace directory</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Request Modal -->
+    <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="requestModalLabel">Request a Managed Service</h5>
+                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-dark border-primary mb-4">
+                        <i class="fas fa-info-circle me-2 text-primary"></i>
+                        <strong>Platform Policy:</strong> All service requests are handled by SecureServe. You will be connected with a vetted service partner only after platform vetting and assignment.
+                    </div>
+                    
+                    <form id="serviceRequestForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="serviceCategory" class="form-label">Service Needed *</label>
+                                <select class="form-select" id="serviceCategory" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Plumbing Services">Plumbing Services</option>
+                                    <option value="Electrical Services">Electrical Services</option>
+                                    <option value="AC & Cooling Services">AC & Cooling Services</option>
+                                    <option value="Solar Installation">Solar Installation</option>
+                                    <option value="Professional Cleaning">Professional Cleaning</option>
+                                    <option value="Other Technical Services">Other Technical Services</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="location" class="form-label">General Area *</label>
+                                <input type="text" class="form-control" id="location" placeholder="e.g., Ikeja, Lagos" required>
+                                <div class="form-text">Provide general area only, not exact address at this stage</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Urgency *</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="urgency" id="immediate" value="Immediate" required>
+                                    <label class="form-check-label" for="immediate">Immediate (Within 24 hours)</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="urgency" id="scheduled" value="Scheduled">
+                                    <label class="form-check-label" for="scheduled">Scheduled (Specific date/time)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Service Description *</label>
+                            <textarea class="form-control" id="description" rows="4" placeholder="Briefly describe the service needed..." required></textarea>
+                            <div class="form-text">Please provide enough detail for proper service partner assignment</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="policyAgreement" required>
+                                <label class="form-check-label" for="policyAgreement">
+                                    I agree to the SecureServe platform policies and understand that all communication must go through the platform
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-dark border-primary">
+                            <i class="fas fa-exclamation-triangle me-2 text-primary"></i>
+                            <small>By submitting this request, you acknowledge that SecureServe will manage all coordination and you will not attempt direct contact with any assigned service partner.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitServiceRequest()">Submit & Continue to WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Partner Application Modal -->
+    <div class="modal fade" id="partnerModal" tabindex="-1" aria-labelledby="partnerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="partnerModalLabel">Apply as Service Partner</h5>
+                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-dark border-primary mb-4">
+                        <i class="fas fa-exclamation-circle me-2 text-primary"></i>
+                        <strong>Platform Rules:</strong> All jobs are assigned by SecureServe. Direct client contact is prohibited. Violation leads to permanent removal from the platform.
+                    </div>
+                    
+                    <form id="partnerApplicationForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="skillCategory" class="form-label">Primary Skill Category *</label>
+                                <select class="form-select" id="skillCategory" required>
+                                    <option value="">Select your skill</option>
+                                    <option value="Plumbing">Plumbing</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="AC & Cooling">AC & Cooling</option>
+                                    <option value="Solar Installation">Solar Installation</option>
+                                    <option value="Cleaning">Cleaning</option>
+                                    <option value="Carpentry">Carpentry</option>
+                                    <option value="Masonry">Masonry</option>
+                                    <option value="Painting">Painting</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="experience" class="form-label">Years of Experience *</label>
+                                <select class="form-select" id="experience" required>
+                                    <option value="">Select experience</option>
+                                    <option value="1-2 years">1-2 years</option>
+                                    <option value="3-5 years">3-5 years</option>
+                                    <option value="6-10 years">6-10 years</option>
+                                    <option value="10+ years">10+ years</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="serviceLocation" class="form-label">Service Areas *</label>
+                                <input type="text" class="form-control" id="serviceLocation" placeholder="e.g., Lagos Mainland, Ikeja, Surulere" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="availability" class="form-label">Availability *</label>
+                                <select class="form-select" id="availability" required>
+                                    <option value="">Select availability</option>
+                                    <option value="Full-time">Full-time</option>
+                                    <option value="Part-time">Part-time</option>
+                                    <option value="Weekends Only">Weekends Only</option>
+                                    <option value="On-call Basis">On-call Basis</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h6 class="text-primary mb-3">Platform Rules Agreement *</h6>
+                            <div class="card card-bg p-3 mb-3">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="rule1" required>
+                                    <label class="form-check-label" for="rule1">
+                                        I agree that all jobs will be assigned exclusively by SecureServe platform
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="rule2" required>
+                                    <label class="form-check-label" for="rule2">
+                                        I will not attempt direct contact with clients or solicit off-platform work
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="rule3" required>
+                                    <label class="form-check-label" for="rule3">
+                                        I understand payment is released only after client confirms job completion
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rule4" required>
+                                    <label class="form-check-label" for="rule4">
+                                        I understand violation of platform rules leads to permanent removal
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-dark border-primary">
+                            <i class="fas fa-handshake me-2 text-primary"></i>
+                            <small>Successful applicants will be added to our vetted service partner network. You will receive job assignments through the platform owner only.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitPartnerApplication()">Submit Application via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policy Modal -->
+    <div class="modal fade" id="policyModal" tabindex="-1" aria-labelledby="policyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="policyModalLabel">Platform Policies</h5>
+                    <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <h6 class="text-primary">Verification & Screening Process</h6>
+                        <p class="text-muted">All service partners undergo manual verification including skill assessment, background checks, and reference validation before being added to our network.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="text-primary">Platform-Managed Communication Policy</h6>
+                        <p class="text-muted">All communication between clients and service partners must go through SecureServe platform. Direct contact is strictly prohibited to maintain quality control and accountability.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="text-primary">Payment and Dispute Handling</h6>
+                        <p class="text-muted">SecureServe acts as escrow manager for all transactions. Payments are released to service partners only after client confirms job completion. The platform mediates any disputes.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="text-primary">Client Safety Commitment</h6>
+                        <p class="text-muted">We guarantee client safety by vetting all service partners and maintaining oversight of all service delivery. Clients have a single point of accountability for all service issues.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h6 class="text-primary">Service Partner Code of Conduct</h6>
+                        <p class="text-muted">Service partners must adhere to professional standards, arrive on time, provide quality workmanship, and communicate exclusively through platform channels.</p>
+                    </div>
+                    
+                    <div class="alert alert-dark border-primary">
+                        <i class="fas fa-ban me-2 text-primary"></i>
+                        <strong>Important:</strong> Services booked outside the SecureServe platform are not supported. Direct payments to service partners void all platform protections.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky WhatsApp Button -->
+    <div class="sticky-whatsapp">
+        <button class="btn btn-whatsapp btn-lg pulse" data-bs-toggle="modal" data-bs-target="#requestModal">
+            <i class="fab fa-whatsapp me-2"></i> Book Service
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Fade-in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                fadeObserver.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Open service request with pre-selected service
+        function openServiceRequest(service) {
+            const modal = new bootstrap.Modal(document.getElementById('requestModal'));
+            document.getElementById('serviceCategory').value = service;
+            modal.show();
+        }
+        
+        // Submit service request
+        function submitServiceRequest() {
+            const form = document.getElementById('serviceRequestForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            const service = document.getElementById('serviceCategory').value;
+            const location = document.getElementById('location').value;
+            const urgency = document.querySelector('input[name="urgency"]:checked').value;
+            const description = document.getElementById('description').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hello, I just submitted a service request on your website.%0A%0A` +
+                                   `Service needed: ${service}%0A` +
+                                   `Location: ${location}%0A` +
+                                   `Urgency: ${urgency}%0A` +
+                                   `Description: ${description}%0A%0A` +
+                                   `Please assign a vetted service partner.`;
+            
+            // Encode for WhatsApp URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('requestModal'));
+            modal.hide();
+            
+            // Redirect to WhatsApp
+            window.open(`https://wa.me/2349032950887?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Submit partner application
+        function submitPartnerApplication() {
+            const form = document.getElementById('partnerApplicationForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            const skill = document.getElementById('skillCategory').value;
+            const experience = document.getElementById('experience').value;
+            const location = document.getElementById('serviceLocation').value;
+            const availability = document.getElementById('availability').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hello, I applied as a service partner on your website.%0A%0A` +
+                                   `Skill: ${skill}%0A` +
+                                   `Experience: ${experience}%0A` +
+                                   `Location: ${location}%0A` +
+                                   `Availability: ${availability}%0A%0A` +
+                                   `I have read and agree to all platform rules.`;
+            
+            // Encode for WhatsApp URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('partnerModal'));
+            modal.hide();
+            
+            // Redirect to WhatsApp
+            window.open(`https://wa.me/2349032950887?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Generate PWA manifest
+        const manifest = {
+            "name": "SecureServe Nigeria",
+            "short_name": "SecureServe",
+            "description": "Managed service coordination platform for Nigeria",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#121212",
+            "theme_color": "#D35400",
+            "icons": [
+                {
+                    "src": "https://via.placeholder.com/192x192.png/ff7f00/ffffff?text=SS",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                },
+                {
+                    "src": "https://via.placeholder.com/512x512.png/ff7f00/ffffff?text=SS",
+                    "sizes": "512x512",
+                    "type": "image/png"
+                }
+            ]
+        };
+        
+        // Create manifest link
+        const manifestLink = document.createElement('link');
+        manifestLink.rel = 'manifest';
+        manifestLink.href = 'data:application/json,' + JSON.stringify(manifest);
+        document.head.appendChild(manifestLink);
+    </script>
+</body>
+</html>
