@@ -970,36 +970,70 @@
         
         // Submit service request
         function submitServiceRequest() {
-            const form = document.getElementById('serviceRequestForm');
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-            
-            const service = document.getElementById('serviceCategory').value;
-            const location = document.getElementById('location').value;
-            const urgency = document.querySelector('input[name="urgency"]:checked').value;
-            const description = document.getElementById('description').value;
-            
-            // Create WhatsApp message
-            const whatsappMessage = `Hello, I just submitted a service request on your website.%0A%0A` +
-                                   `Service needed: ${service}%0A` +
-                                   `Location: ${location}%0A` +
-                                   `Urgency: ${urgency}%0A` +
-                                   `Description: ${description}%0A%0A` +
-                                   `Please assign a vetted service partner.`;
-            
-            // Encode for WhatsApp URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Close modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('requestModal'));
-            modal.hide();
-            
-            // Redirect to WhatsApp
-            window.open(`https://wa.me/2349032950887?text=${encodedMessage}`, '_blank');
-        }
+    const form = document.getElementById('serviceRequestForm');
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+    
+    const service = document.getElementById('serviceCategory').value;
+    const location = document.getElementById('location').value;
+    const urgency = document.querySelector('input[name="urgency"]:checked').value;
+    const description = document.getElementById('description').value;
+    
+    // Clean WhatsApp message format
+    const whatsappMessage = `Hello, I just submitted a service request on your website.
+
+Service needed: ${service}
+Location: ${location}
+Urgency: ${urgency}
+Description: ${description}
+
+Please assign a vetted service partner.`;
+    
+    // Encode for WhatsApp URL (this properly handles newlines)
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Close modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('requestModal'));
+    modal.hide();
+    
+    // Redirect to WhatsApp
+    window.open(`https://wa.me/2349032950887?text=${encodedMessage}`, '_blank');
+}
+
+function submitPartnerApplication() {
+    const form = document.getElementById('partnerApplicationForm');
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+    
+    const skill = document.getElementById('skillCategory').value;
+    const experience = document.getElementById('experience').value;
+    const location = document.getElementById('serviceLocation').value;
+    const availability = document.getElementById('availability').value;
+    
+    // Clean WhatsApp message format
+    const whatsappMessage = `Hello, I applied as a service partner on your website.
+
+    Skill: ${skill}
+    Experience: ${experience}
+    Location: ${location}
+    Availability: ${availability}
+
+    I have read and agree to all platform rules.`;
         
+        // Encode for WhatsApp URL
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('partnerModal'));
+        modal.hide();
+        
+        // Redirect to WhatsApp
+        window.open(`https://wa.me/2349032950887?text=${encodedMessage}`, '_blank');
+    }
         // Submit partner application
         function submitPartnerApplication() {
             const form = document.getElementById('partnerApplicationForm');
