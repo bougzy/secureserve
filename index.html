@@ -209,6 +209,31 @@
             background-color: var(--primary-orange);
             border-radius: 50%;
         }
+
+        /* Add this to your existing CSS */
+.service-operator-blinking {
+    color: darkorange;
+    animation: softPulse 0.8s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes softPulse {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+    }
+}
+
+/* Optional: Add a subtle glow on hover */
+.service-operator-blinking:hover {
+    animation: none;
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+}
         
         .process-step:after {
             content: '';
@@ -618,51 +643,55 @@
 
     <!-- Footer -->
     <!-- Footer -->
-        <footer class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <h3 class="logo mb-3">Secure<span>Serve</span></h3>
-                        <p class="text-white">A managed service coordination platform for Nigeria. We provide oversight, accountability, and quality assurance for artisan services.</p>
-                        <div class="mt-4">
-                            <p class="text-white"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Serving urban and semi-urban areas across Nigeria</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 mb-4 mb-lg-0">
-                        <h5 class="text-primary mb-4">Platform Policies</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Verification & Screening Process</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Communication Policy</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Payment & Dispute Handling</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Client Safety Commitment</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Service Partner Code of Conduct</a></li>
-                            <li class="mb-2"><a href="#" class="text-white text-decoration-none" onclick="openServiceOperatorInterest()">Submit Interest to Be Considered as a Service Operator</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="col-lg-4">
-                        <h5 class="text-primary mb-4">Contact Platform</h5>
-                        <p class="text-white">All communication must go through official platform channels:</p>
-                        <button class="btn btn-whatsapp mb-3">
-                            <i class="fab fa-whatsapp me-2"></i> WhatsApp Business Line
-                        </button>
-                        <p class="text-white small mt-3"><i class="fas fa-exclamation-triangle me-1 text-primary"></i> For platform integrity, we do not provide direct contact details for service partners.</p>
-                    </div>
-                </div>
-                
-                <hr class="my-5 border-color">
-                
-                <div class="row">
-                    <div class="col-md-6">
-                        <p class="text-white small">&copy; 2023 SecureServe Nigeria. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <p class="text-white small">A managed service coordination platform | Not a marketplace directory</p>
-                    </div>
+    <footer class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h3 class="logo mb-3">Secure<span>Serve</span></h3>
+                <p class="text-white">A managed service coordination platform for Nigeria. We provide oversight, accountability, and quality assurance for artisan services.</p>
+                <div class="mt-4">
+                    <p class="text-white"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Serving urban and semi-urban areas across Nigeria</p>
                 </div>
             </div>
-        </footer>
+            
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <h5 class="text-primary mb-4">Platform Policies</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Verification & Screening Process</a></li>
+                    <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Communication Policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Payment & Dispute Handling</a></li>
+                    <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Client Safety Commitment</a></li>
+                    <li class="mb-2"><a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#policyModal">Service Partner Code of Conduct</a></li>
+                    <li class="mb-2">
+                        <a href="#" class="fw-bold text-decoration-none service-operator-blinking" onclick="openServiceOperatorInterest()">
+                            Click here if you wish to be considered as a service operator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-4">
+                <h5 class="text-primary mb-4">Contact Platform</h5>
+                <p class="text-white">All communication must go through official platform channels:</p>
+                <button class="btn btn-whatsapp mb-3">
+                    <i class="fab fa-whatsapp me-2"></i> WhatsApp Business Line
+                </button>
+                <p class="text-white small mt-3"><i class="fas fa-exclamation-triangle me-1 text-primary"></i> For platform integrity, we do not provide direct contact details for service partners.</p>
+            </div>
+        </div>
+        
+        <hr class="my-5 border-color">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-white small">&copy; 2023 SecureServe Nigeria. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="text-white small">A managed service coordination platform | Not a marketplace directory</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <!-- Service Request Modal -->
     <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalLabel" aria-hidden="true">
